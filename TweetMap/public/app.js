@@ -50,10 +50,9 @@ function initMap() {
         var lng = event.latLng.lng();
         console.log("Lat=" + lat + "; Lng=" + lng);
         map.clearOverlays();
-
-        // request
         $.post("http://localhost:8081/getTweetsWithLocation",{candidate: currentCandidate, lat: lat, lng: lng}, function(data){
             mapTweets(data);
+            console.log(currentCandidate);
         });
     });
     // fetch all tweets
@@ -73,9 +72,11 @@ $(document).ready(function(){
     $(document.body).on('click', '.dropdown li a', function (e) {
         // delete existing markers
         map.clearOverlays();
-        var currentCandidate = $(this).text();
+        currentCandidate = $(this).text();
         $.post("http://localhost:8081/getTweets",{candidate: currentCandidate}, function(data){
             mapTweets(data);
+            console.log(currentCandidate);
+
         });
     });
 });

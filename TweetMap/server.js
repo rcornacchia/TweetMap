@@ -30,6 +30,7 @@ app.post('/getTweets',function(req,res) {
           }
         }, function (error, response) {
             res.json(response);
+
         });
         console.log("Candidate name = "+candidate);
     } else {
@@ -44,6 +45,8 @@ app.post('/getTweets',function(req,res) {
                   }
             }
         }, function (error, response) {
+            console.log("Testgggg");
+
             res.json(response);
         });
     }
@@ -78,8 +81,8 @@ app.post('/getTweetsWithLocation', function(req,res) {
             }
         }, function (error, response) {
             res.json(response);
+            console.log("Candidate name = "+candidate);
         });
-        console.log("Candidate name = "+candidate);
     } else {
         client.search({
             index: 'geoindex',
@@ -106,6 +109,8 @@ app.post('/getTweetsWithLocation', function(req,res) {
             }
         }, function (error, response) {
             res.json(response);
+            console.log("Candidate name = "+candidate);
+
         });
     }
 });
